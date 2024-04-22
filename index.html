@@ -82,10 +82,10 @@
                 </div>
             </div>
 
-            <div class="bottom">
+            <div class="bottom" >
                 <span class="icon-bottom"><i class="fa-regular fa-face-smile"></i></span>
                 <span class="message"> <label for="username"></label>
-                    <input id="chat" type="text" placeholder="Scrivi un messaggio"></span>
+                    <input @keyup.enter="submit" id="chat" type="text" placeholder="Scrivi un messaggio" v-model="newMessages.message"></span>
                 <span class="icon-bottom"> <i class="fa-solid fa-microphone"></i></span>
             </div>
         </div>

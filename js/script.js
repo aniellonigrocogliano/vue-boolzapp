@@ -3,6 +3,13 @@ createApp({
     data() {
         return {
             indexChat: 0,
+            messaggio: "",
+            newMessages: {
+                date: "",
+                message: "",
+                status: "",
+
+              },
             contacts: [
                 {
                     name: 'Michele',
@@ -175,7 +182,15 @@ createApp({
     methods: {
         chatInitialization: function (index) {
             this.indexChat = index;
-    }
-    }
+        },
+   
+       submit: function () {
+        this.newMessages.date="00/00/000 00:00";
+        this.newMessages.status ="sent";
+        const copyMessage = { ...this.newMessages};
+        this.contacts[this.indexChat].messages.push(copyMessage);
+
+    },
+     },
 
 }).mount("#app");
