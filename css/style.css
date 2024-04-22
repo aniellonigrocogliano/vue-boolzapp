@@ -1,0 +1,234 @@
+/* rest */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+}
+
+img {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+:root {
+    --water-green: #259688;
+    --back-gray: #DBDBD3;
+    --gray: #EAEAEA;
+    --azure: #8EDAFC;
+    --green: #D5F9BA;
+    --strong-gray: #B1B1B1;
+    --white: #ffffff;
+    --black: #000000;
+    --beige: #F3EEEA
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.background {
+    position: absolute;
+    background-color: var(--water-green);
+    height: 15vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+.background-bis {
+    position: absolute;
+    background-color: var(--back-gray);
+    height: 85vh;
+    width: 100vw;
+    top: 15vh;
+    left: 0px;
+    z-index: -1;
+}
+
+.container {
+    position: absolute;
+    width: 80vw;
+    height: 90vh;
+    background-color: antiquewhite;
+    top: 5vh;
+    left: 10vw;
+}
+
+.col30 {
+    width: 30%;
+    height: 100%;
+    background-color:var(--white);
+}
+
+.col70 {
+    width: 70%;
+    height: 100%;
+    background-image: url(../img/mine.jpg);
+    position: relative;
+}
+
+.toolbar-left {
+    width: 100%;
+    height: 100%;
+}
+
+.top-left {
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 8%;
+    background-color: var(--gray);
+    color: var(--strong-gray);
+    font-size: 1.5rem;
+}
+
+.notifications {
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 8%;
+    background-color: var(--azure);
+
+}
+
+.bell {
+    background-color: var(--white);
+    border-radius: 50%;
+    color: var(--azure);
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.notifications div {
+    padding-left: 25px;
+    font-size: 1rem;
+}
+
+.notifications p:last-child {
+    color: var(--strong-gray);
+    text-decoration: underline;
+    font-size: 0.8rem;
+}
+
+.search {
+    background-color: var(--white);
+    border: 5px solid var(--gray);
+    color: var(--gray);
+    padding: 5px;
+}
+
+input[type=text] {
+    border: none;
+    width: 80%;
+}
+
+.chat-list {
+    padding: 5px;
+    justify-content:first baseline;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    color: var(--strong-gray);
+    font-size: 1.5rem;
+    border-bottom: 0.5px solid var(--gray);
+    gap: 10px;
+}
+.chat-list:last-child{
+    border-bottom: none;
+}
+.name h2, .status h2{
+    font-size: 1rem;
+    color: var(--black);
+}
+.name p, .status p {
+    color: var(--strong-gray);
+    font-size: 0.8rem;
+}
+.hours{
+    position: relative;
+}
+.hours p{
+    position: absolute;
+    color: var(--strong-gray);
+    font-size: 0.6rem;  
+    top: -2.5vh;
+    right: -6vw;
+}
+.scrooll{
+    overflow-y: scroll;
+}
+.top-right {
+    padding: 5px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 8%;
+    background-color: var(--gray);
+    color: var(--strong-gray);
+    font-size: 1.5rem;
+    border-left: 0.5px solid var(--strong-gray);
+}
+.status{
+    align-items: center;
+    justify-content: flex-start;
+}
+.chat{
+    flex-direction: column;
+    height: 75vh;
+    overflow-y: scroll;
+    overflow: auto;
+}
+.box{
+    width: 55%;
+    margin: 25px 75px 25px 75px;
+    border-radius: 10px;
+    padding: 15px;
+    color: var(--black);
+}
+.green{
+    background-color: var(--green);
+    align-self:flex-end;
+}
+.white{
+    background-color: var(--white);
+}
+.chat-time {
+    color: var(--strong-gray);
+    font-size: 0.8rem;
+    align-content: space-between
+
+
+}
+.bottom{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    background-color: var(--beige);
+    width: 100%;
+    height: 8%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    color: var(--strong-gray);
+}
+.message{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 5px solid var(--beige);
+    background-color: var(--white);
+    width: 95%;
+    
+}
+
+  

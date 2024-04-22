@@ -1,0 +1,57 @@
+/* - tablet: 768px */
+@media screen and (max-width: 780px) {
+    .container {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+ 
+        top: 0vh;
+        left: 0vw;
+    }
+    .col30{
+        width: 10%;
+    }
+   .col70{
+    width: 90%;
+   }
+   .icon-left{
+    display: none;
+   }
+   .no-notifications {
+    display:none;
+   }
+   .search{
+    display: none;
+   }
+   .chat-list h2, .chat-list p {
+    display: none;
+   }
+   .box{
+    width: 65%;
+    margin: 15px 45px 15px 45px;
+}
+}
+
+
+/* - mobile: 480px */
+@media screen and (max-width: 480px) {
+    .col30{
+        display: none;
+    }
+    .col70{
+        width: 100%;
+       }
+   .icon-right{
+    display:none;
+   }
+   .box{
+    width: 65%;
+    margin: 5px 15px 5px 15px;
+}
+.icon-bottom{
+    display:none;
+}
+.message{
+    width: 98%;
+}
+}
