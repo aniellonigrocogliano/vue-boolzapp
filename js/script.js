@@ -230,6 +230,10 @@ createApp({
 
         
         },
+        elimina: function (index) {
+            this.contacts[this.indexChat].messages.splice(index, 1);
+           
+        },
     },
 
 }).mount("#app");
