@@ -1,13 +1,16 @@
+
+const dt = luxon.DateTime;
 const { createApp } = Vue;
 createApp({
     data() {
         return {
+          risposta:"",
             indexChat: 0,
-            messaggio: "",
             newMessages: {
                 date: "",
                 message: "",
                 status: "",
+               
 
               },
             contacts: [
@@ -185,11 +188,31 @@ createApp({
         },
    
        submit: function () {
-        this.newMessages.date="00/00/000 00:00";
+        const now = dt.now();
+        this.newMessages.date=now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
         this.newMessages.status ="sent";
         const copyMessage = { ...this.newMessages};
         this.contacts[this.indexChat].messages.push(copyMessage);
+        this.newMessages.message = "";
+        this.newMessages.status ="";
+        this.newMessages.date="",
 
+        this.autoreply();
+    },
+    autoreply: function(){
+        this.risposta = setTimeout(() =>{
+        const now = dt.now();
+        this.newMessages.date=now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+        this.newMessages.status ="received";
+        let num=Math.floor(Math.random() * 5);
+        const risposteRandom = ["ok","va bene","d’accordo","sì","okey","perfetto"];
+        this.newMessages.message = risposteRandom[num];
+        const copyMessage = { ...this.newMessages};
+        this.contacts[this.indexChat].messages.push(copyMessage);
+        this.newMessages.message = "";
+        this.newMessages.status ="";
+        this.newMessages.date="",
+    }, 2000);
     },
      },
 

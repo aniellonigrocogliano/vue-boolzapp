@@ -44,13 +44,13 @@
                 </div>
                 <div   class="scrooll">
                     <div v-for="(item, index) in contacts"  @click="chatInitialization(index)"  class="chat-list flex nowrap">
-                        <img :src="`./img/avatar${item.avatar}.jpg`" alt="">
+                        <img :src="`./img/avatar${item.avatar}.jpg`" :alt="item.name">
                         <div class="name">
                             <h2>{{item.name}}</h2>
                             <p>Lorem ipsum dolor sit amet</p>
                         </div>
-                        <div class="hours">
-                            <p>16:15</p>
+                        <div  class="hours">
+                            <p > 10/02</p>
                         </div>
                     </div>
                     
@@ -61,7 +61,7 @@
             <div>
                 <div class="top-right flex nowrap">
                     <div>
-                        <div class="status flex nowrap"><img :src="`./img/avatar${contacts[indexChat].avatar}.jpg`" alt="">
+                        <div class="status flex nowrap"><img :src="`./img/avatar${contacts[indexChat].avatar}.jpg`" :alt="`${contacts[indexChat].name}`">
                             <div>
                                 <h2>{{contacts[indexChat].name}}</h2>
                                 <p>Ultimo accesso oggi alle 16:26</p>
@@ -76,7 +76,7 @@
                         <p>{{item.message}}</p>
                         <div class="chat-time flex wrap">
                             <i class="fa-solid fa-angle-down"></i>
-                            <p>16:13</p>
+                            <p>{{item.date}}</p>
                         </div>
                     </div>
                 </div>
@@ -92,6 +92,7 @@
 
     </div>
     </div>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 
