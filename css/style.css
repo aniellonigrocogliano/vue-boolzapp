@@ -231,5 +231,33 @@ input[type=text] {
     width: 95%;
     
 }
+/* MESSAGE PANEL */
+.message-options-panel {
+
+    right: 0;
+    bottom: -7px;
+    width: 150px;
+    height: 80px;
+    background: white;
+    box-shadow: 0px 0px 40px -15px rgba(0, 0, 0, 0.75);
+  }
+  
+.panel-block {
+    display: block;
+  }
+.panel-none{
+    display: none;
+}
+.message-options-panel > div {
+    cursor: pointer;
+    width: 100%;
+    line-height: 40px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+.message-options-panel > div:hover {
+    color: #6B7376;
+  }
 
   

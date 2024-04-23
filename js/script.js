@@ -7,7 +7,7 @@ createApp({
             risposta: "",
             indexChat: 0,
             userResearch: "",
-            flagSearch: null,
+            isHidden :[],
             newMessages: {
                 date: "",
                 message: "",
@@ -232,7 +232,21 @@ createApp({
         },
         elimina: function (index) {
             this.contacts[this.indexChat].messages.splice(index, 1);
+            this.isHidden =[];
            
+        },
+        openPanel: function (index) {
+            let count=0;
+            if(this.isHidden[index]==true){count++}
+            for (let i = 0; i < this.contacts[this.indexChat].messages.length; i++) {
+                this.isHidden[i]=false;  
+            }
+            if(count==0){
+            this.isHidden[index]=true; 
+            count++;
+           }else{
+            count=0;
+           }
         },
     },
 

@@ -73,10 +73,14 @@
                             class="fa-solid fa-paperclip"></i> <i class="fa-solid fa-ellipsis-vertical"></i></div>
                 </div>
                 <div class="chat flex nowrap">
-                    <div v-for="(item, index) in contacts[indexChat].messages" :class="item.status === 'sent' ? 'green' : 'white'" class="box flex nowrap" @click="elimina(index)">
+                    <div v-for="(item, index) in contacts[indexChat].messages" :class="item.status === 'sent' ? 'green' : 'white'" class="box flex nowrap" >
                         <p>{{item.message}}</p>
                         <div class="chat-time flex wrap">
-                            <i  class="fa-solid fa-angle-down "></i>
+                            <div @click="openPanel(index)"><i  class="fa fa-chevron-down"></i></div>
+                                <div class="message-options-panel" :class="isHidden[index] ? 'panel-block' : 'panel-none'">
+                                    <div class="message-info">Info messaggio</div>
+                                    <div @click="elimina(index)" class="message-destroy">Cancella messaggio</div>
+                                </div>
                             <p>{{item.date}}</p>
                         </div>
                     </div>
