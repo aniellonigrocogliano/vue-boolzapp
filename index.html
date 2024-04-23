@@ -40,11 +40,11 @@
                 <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <label for="username"></label>
-                    <input aria-label="search" id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input @keyup= "research" aria-label="search" id="search" type="text" placeholder="Cerca o inizia una nuova chat" v-model.trim="userResearch">
                 </div>
                 <div   class="scrooll">
-                    <div v-for="(item, index) in contacts"  @click="chatInitialization(index)"  class="chat-list flex nowrap">
-                        <img :src="`./img/avatar${item.avatar}.jpg`" :alt="item.name">
+                    <div v-for="(item, index) in contacts"  @click="chatInitialization(index)" v-show="item.visible" class="chat-list flex nowrap">
+                        <img  :src="`./img/avatar${item.avatar}.jpg`" :alt="item.name">
                         <div class="name">
                             <h2>{{item.name}}</h2>
                             <p>Lorem ipsum dolor sit amet</p>

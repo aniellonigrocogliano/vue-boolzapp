@@ -4,15 +4,15 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-          risposta:"",
+            risposta: "",
             indexChat: 0,
+            userResearch: "",
+            flagSearch: null,
             newMessages: {
                 date: "",
                 message: "",
                 status: "",
-               
-
-              },
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -186,34 +186,50 @@ createApp({
         chatInitialization: function (index) {
             this.indexChat = index;
         },
-   
-       submit: function () {
-        const now = dt.now();
-        this.newMessages.date=now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
-        this.newMessages.status ="sent";
-        const copyMessage = { ...this.newMessages};
-        this.contacts[this.indexChat].messages.push(copyMessage);
-        this.newMessages.message = "";
-        this.newMessages.status ="";
-        this.newMessages.date="",
 
-        this.autoreply();
+        submit: function () {
+            const now = dt.now();
+            this.newMessages.date = now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+            this.newMessages.status = "sent";
+            const copyMessage = { ...this.newMessages };
+            this.contacts[this.indexChat].messages.push(copyMessage);
+            this.newMessages.message = "";
+            this.newMessages.status = "";
+            this.newMessages.date = "";
+
+            this.autoreply();
+        },
+        autoreply: function () {
+            this.risposta = setTimeout(() => {
+                const now = dt.now();
+                this.newMessages.date = now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+                this.newMessages.status = "received";
+                let num = Math.floor(Math.random() * 5);
+                const risposteRandom = ["ok", "va bene", "d’accordo", "sì", "okey", "perfetto"];
+                this.newMessages.message = risposteRandom[num];
+                const copyMessage = { ...this.newMessages };
+                this.contacts[this.indexChat].messages.push(copyMessage);
+                this.newMessages.message = "";
+                this.newMessages.status = "";
+                this.newMessages.date = "";
+            }, 4000);
+        },
+        research: function () {
+            for (let i = 0; i < this.contacts.length; i++) {
+                let element = this.contacts[i].name;
+                element = element.toLowerCase();
+                this.userResearch = this.userResearch.toLowerCase();
+                if(element.includes(this.userResearch)){
+                    this.contacts[i].visible=true;
+                }else{
+                    this.contacts[i].visible=false;
+                }
+
+                
+                }
+
+        
+        },
     },
-    autoreply: function(){
-        this.risposta = setTimeout(() =>{
-        const now = dt.now();
-        this.newMessages.date=now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
-        this.newMessages.status ="received";
-        let num=Math.floor(Math.random() * 5);
-        const risposteRandom = ["ok","va bene","d’accordo","sì","okey","perfetto"];
-        this.newMessages.message = risposteRandom[num];
-        const copyMessage = { ...this.newMessages};
-        this.contacts[this.indexChat].messages.push(copyMessage);
-        this.newMessages.message = "";
-        this.newMessages.status ="";
-        this.newMessages.date="",
-    }, 2000);
-    },
-     },
 
 }).mount("#app");
