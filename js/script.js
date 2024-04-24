@@ -6,9 +6,9 @@ createApp({
         return {
             risposta: "",
             indexChat: 0,
-            userResearch: "",
+            userResearch: "", 
             isHidden :[],
-            newMessages: {
+            newMessages: { 
                 date: "",
                 message: "",
                 status: "",
@@ -183,11 +183,11 @@ createApp({
 
     },
     methods: {
-        chatInitialization: function (index) {
+        chatInitialization: function (index) { // cambio chat da visualizzare in base al click dell'utente 
             this.indexChat = index;
-        },
+        }, 
 
-        submit: function () {
+        submit: function () { //aggiungo nuovo messaggio tramite invio dell'utente
             const now = dt.now();
             this.newMessages.date = now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
             this.newMessages.status = "sent";
@@ -200,7 +200,7 @@ createApp({
             this.autoreply();
         },
         autoreply: function () {
-            this.risposta = setTimeout(() => {
+            this.risposta = setTimeout(() => { //risposta automatica
                 const now = dt.now();
                 this.newMessages.date = now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
                 this.newMessages.status = "received";
@@ -214,7 +214,7 @@ createApp({
                 this.newMessages.date = "";
             }, 4000);
         },
-        research: function () {
+        research: function () {  // ricerca utente
             for (let i = 0; i < this.contacts.length; i++) {
                 let element = this.contacts[i].name;
                 element = element.toLowerCase();
@@ -230,12 +230,12 @@ createApp({
 
         
         },
-        elimina: function (index) {
+        elimina: function (index) { // elimina chat
             this.contacts[this.indexChat].messages.splice(index, 1);
             this.isHidden =[];
            
         },
-        openPanel: function (index) {
+        openPanel: function (index) { // apertura e chiusura menu a tendina
             let count=0;
             if(this.isHidden[index]==true){count++}
             for (let i = 0; i < this.contacts[this.indexChat].messages.length; i++) {

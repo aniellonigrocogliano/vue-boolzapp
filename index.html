@@ -48,10 +48,10 @@
                         <img  :src="`./img/avatar${item.avatar}.jpg`" :alt="item.name">
                         <div class="name">
                             <h2>{{item.name}}</h2>
-                            <p>Lorem ipsum dolor sit amet</p>
+                            <p v-for="(item2, index2) in item.messages"  v-show="index2 == (item.messages.length)-1">{{item2.message}}</p>
                         </div>
                         <div  class="hours">
-                            <p > 10/02</p>
+                            <p v-for="(item2, index2) in item.messages" v-show="index2 == (item.messages.length)-1">{{item2.date}}</p>
                         </div>
                     </div>
                     
