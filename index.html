@@ -91,7 +91,7 @@
                 <span class="icon-bottom"><i class="fa-regular fa-face-smile"></i></span>
                 <span class="message"> <label for="username"></label>
                     <input @keyup.enter="submit" id="chat" type="text" placeholder="Scrivi un messaggio" v-model="newMessages.message"></span>
-                <span class="icon-bottom"> <i class="fa-solid fa-microphone"></i></span>
+                <span  ></span> <i v-show='newMessages.message===""' class="fa-solid fa-microphone"></i> <i @click="submit" v-show='newMessages.message!==""'class="fa-solid fa-paper-plane"></i></span>
             </div>
         </div>
 

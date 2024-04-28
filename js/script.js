@@ -188,7 +188,7 @@ createApp({
         }, 
 
         submit: function () { //aggiungo nuovo messaggio tramite invio dell'utente
-            if(this.newMessages.status!=""){
+            if(this.newMessages.message!=""){
             const now = dt.now();
             this.newMessages.date = now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
             this.newMessages.status = "sent";
