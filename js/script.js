@@ -188,6 +188,7 @@ createApp({
         }, 
 
         submit: function () { //aggiungo nuovo messaggio tramite invio dell'utente
+            if(this.newMessages.status!=""){
             const now = dt.now();
             this.newMessages.date = now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
             this.newMessages.status = "sent";
@@ -196,8 +197,9 @@ createApp({
             this.newMessages.message = "";
             this.newMessages.status = "";
             this.newMessages.date = "";
-
             this.autoreply();
+}
+            
         },
         autoreply: function () {
             this.risposta = setTimeout(() => { //risposta automatica
