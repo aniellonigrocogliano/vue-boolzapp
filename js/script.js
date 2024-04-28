@@ -4,10 +4,12 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            lastAcess: ['16:26','16:26','16:26','16:26','16:26','16:26','16:26','16:26'],
             risposta: "",
             indexChat: 0,
             userResearch: "", 
             isHidden :[],
+            lastAcessVisible:"Ultimo accesso oggi alle: ",
             newMessages: { 
                 date: "",
                 message: "",
@@ -180,7 +182,6 @@ createApp({
         };
     },
     created() {
-
     },
     methods: {
         chatInitialization: function (index) { // cambio chat da visualizzare in base al click dell'utente 
@@ -201,8 +202,11 @@ createApp({
 }
             
         },
-        autoreply: function () {
-            this.risposta = setTimeout(() => { //risposta automatica
+        autoreply: function () {                   
+             this.lastAcess[this.indexChat]="";
+                 this.lastAcessVisible="Sta scrivendo...";
+                 this.risposta = setTimeout(() => { //risposta automatica
+
                 const now = dt.now();
                 this.newMessages.date = now.setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
                 this.newMessages.status = "received";
@@ -213,8 +217,16 @@ createApp({
                 this.contacts[this.indexChat].messages.push(copyMessage);
                 this.newMessages.message = "";
                 this.newMessages.status = "";
-                this.newMessages.date = "";
+                this.newMessages.date = "";  
+                this.lastAcessVisible="Online";
             }, 4000);
+          
+            setTimeout(() => {
+                const now = dt.now();
+                this.lastAcessVisible="Ultimo accesso oggi alle: ";
+                this.lastAcess[this.indexChat] = now.setLocale('it').toLocaleString(dt.TIME_SIMPLE);
+            }, 8000)
+
         },
         research: function () {  // ricerca utente
             for (let i = 0; i < this.contacts.length; i++) {

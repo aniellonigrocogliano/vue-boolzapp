@@ -65,7 +65,7 @@
                         <div class="status flex nowrap"><img :src="`./img/avatar${contacts[indexChat].avatar}.jpg`" :alt="`${contacts[indexChat].name}`">
                             <div>
                                 <h2>{{contacts[indexChat].name}}</h2>
-                                <p>Ultimo accesso oggi alle 16:26</p>
+                                <p>{{lastAcessVisible}}{{lastAcess[indexChat]}}</p>
                             </div>
                         </div>
                     </div>
